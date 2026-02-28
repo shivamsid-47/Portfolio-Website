@@ -449,7 +449,9 @@ flex-wrap:wrap;}
 }
 .portfolio-content{
     display:grid;
-    grid-template-columns: repeat(auto-fit,minmax(350px,auto));
+    grid-template-columns: repeat(auto-fit,minmax(350px,1fr));
+    gap:30px;
+    padding:40px 60px;
 }
 .row{
     position: relative;
@@ -467,7 +469,7 @@ flex-wrap:wrap;}
     width: 100%;
     height:0;
     background:linear-gradient(rgba(0,0,0,0.1),#0ef);
-    postion:absolute;
+    position:absolute;
     border-radius: 8px;
     left:0;
     bottom:0;
@@ -479,8 +481,6 @@ flex-wrap:wrap;}
     text-align: center;
     padding:0 40px;
     transition: height 0.5s;
-
-
 }
 .layer h5{
     color:#000;
