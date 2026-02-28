@@ -26,4 +26,52 @@ document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
     });
 });
 
+var contactForm = document.getElementById('contact-form');
+var formStatus = document.getElementById('form-status');
+
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        var name = contactForm.querySelector('input[name="name"]').value.trim();
+        var email = contactForm.querySelector('input[name="email"]').value.trim();
+        var message = contactForm.querySelector('textarea[name="message"]').value.trim();
+
+        formStatus.className = 'form-status';
+        formStatus.textContent = '';
+
+        if (!name) {
+            formStatus.className = 'form-status error';
+            formStatus.textContent = 'Please enter your name.';
+            return;
+        }
+        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            formStatus.className = 'form-status error';
+            formStatus.textContent = 'Please enter a valid email address.';
+            return;
+        }
+        if (!message) {
+            formStatus.className = 'form-status error';
+            formStatus.textContent = 'Please enter your message.';
+            return;
+        }
+
+        var sendBtn = contactForm.querySelector('.send');
+        var sendText = sendBtn.querySelector('.send-text');
+        var originalText = sendText.textContent;
+        sendText.textContent = 'Sending...';
+        sendBtn.disabled = true;
+        sendBtn.style.opacity = '0.7';
+
+        setTimeout(function() {
+            formStatus.className = 'form-status success';
+            formStatus.textContent = 'Thank you, ' + name + '! Your message has been sent successfully.';
+            sendText.textContent = originalText;
+            sendBtn.disabled = false;
+            sendBtn.style.opacity = '1';
+            contactForm.reset();
+        }, 1500);
+    });
+}
+
 

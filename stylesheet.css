@@ -630,28 +630,85 @@ flex-wrap:wrap;}
 }
 .contact-form form{
     position: relative;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
 }
-.contact-form form input,form textarea{
-    border:none;
+.contact-form form input,
+.contact-form form textarea{
+    border:2px solid transparent;
     outline:none;
-    width:90%;
-    padding:18px;
-    background:#555557;
-    color:#000;
+    width:100%;
+    padding:16px 20px;
+    background:#112e42;
+    color:#ededed;
     font-size:1rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    border-radius: 0.5rem;
-
-
+    font-weight:500;
+    font-family:'Poppins', sans-serif;
+    border-radius:10px;
+    transition:border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.contact-form form input::placeholder,
+.contact-form form textarea::placeholder{
+    color:#7a8a96;
+    font-weight:400;
+}
+.contact-form form input:focus,
+.contact-form form textarea:focus{
+    border-color:#0ef;
+    box-shadow:0 0 8px rgba(0,238,255,0.15);
 }
 .contact-form textarea{
-    height:220px;
-    resize:none;
+    height:200px;
+    resize:vertical;
 }
-.contact-form form .send:hover{
-    box-shadow:0 0 5px cyan,0 0 50px cyan,0 0 200px cyan;
-
+.contact-form .send{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    width:100%;
+    padding:16px 32px;
+    background:#0ef;
+    color:#081b29;
+    font-size:18px;
+    font-weight:700;
+    font-family:'Poppins', sans-serif;
+    letter-spacing:1px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    transition:all 0.35s ease;
+    box-shadow:0 0 10px rgba(0,238,255,0.3);
+}
+.contact-form .send:hover{
+    background:#00d4e6;
+    box-shadow:0 0 10px #0ef, 0 0 30px #0ef, 0 0 60px rgba(0,238,255,0.3);
+    transform:translateY(-2px);
+}
+.contact-form .send:active{
+    transform:translateY(0);
+    box-shadow:0 0 5px #0ef;
+}
+.contact-form .send .send-icon{
+    font-size:20px;
+    transition:transform 0.3s ease;
+}
+.contact-form .send:hover .send-icon{
+    transform:translateX(4px);
+}
+.form-status{
+    text-align:center;
+    font-size:15px;
+    font-weight:500;
+    min-height:24px;
+    margin-top:4px;
+}
+.form-status.success{
+    color:#0ef;
+}
+.form-status.error{
+    color:#ff6b6b;
 }
 .last-text p{
     width:100%;

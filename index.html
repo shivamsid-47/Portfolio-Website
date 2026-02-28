@@ -205,13 +205,17 @@
           </div>
     </div>
     <div class="contact-form">
-        <form action="">
-            <input type="" placeholder="Enter your Name" required>
-            <input type="email" placeholder="Enter your Email" required>
-            <input type="" placeholder="Enter Your Subject">
-            <textarea name="" id=""cols="40"rows="10"placeholder="Enter Your Message" required>
-            <input type="submit" value="submit" class="send">   
-            </textarea></form>
+        <form action="" id="contact-form">
+            <input type="text" name="name" placeholder="Enter your Name" required>
+            <input type="email" name="email" placeholder="Enter your Email" required>
+            <input type="text" name="subject" placeholder="Enter Your Subject">
+            <textarea name="message" cols="40" rows="10" placeholder="Enter Your Message" required></textarea>
+            <button type="submit" class="send">
+                <span class="send-text">Send Message</span>
+                <i class='bx bx-send send-icon'></i>
+            </button>
+            <div class="form-status" id="form-status"></div>
+        </form>
     </div>
 
 </section>
